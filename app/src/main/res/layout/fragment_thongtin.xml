@@ -18,6 +18,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+<!--        Tablayout-->
+        <Button
+            android:id="@+id/buttonAdd"
+            android:backgroundTint="@color/gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm công việc" />
+
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclrView"
@@ -27,9 +35,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <!--    <Button-->
-    <!--        android:id="@+id/button"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="Button" />-->
+
 </LinearLayout>

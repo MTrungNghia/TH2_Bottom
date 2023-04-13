@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import com.example.th2_bottom.DAO.SQLiteHelper;
 import com.example.th2_bottom.R;
 import com.example.th2_bottom.UpdateDeleteActivity;
 import com.example.th2_bottom.adapter.RecycleViewAdapter;
+import com.example.th2_bottom.addjob;
 import com.example.th2_bottom.model.CongViec;
 
 import java.util.List;
@@ -26,6 +28,9 @@ public class FragmentThongTin extends Fragment implements RecycleViewAdapter.Ite
     private RecycleViewAdapter adapter;
     private RecyclerView recyclerView;
     private SQLiteHelper db;
+
+//    Tablayout:
+    private Button btAdd;
 
     @Nullable
     @Override
@@ -37,6 +42,9 @@ public class FragmentThongTin extends Fragment implements RecycleViewAdapter.Ite
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclrView);
+        //    Tablayout:
+        btAdd = view.findViewById(R.id.buttonAdd);
+
         adapter = new RecycleViewAdapter();
         db = new SQLiteHelper((getContext()));
 //        CongViec i = new CongViec( "Quat nha1", "Quet 3 tang", "04/04/2023", "Da hoan thanh", 1);
@@ -49,6 +57,14 @@ public class FragmentThongTin extends Fragment implements RecycleViewAdapter.Ite
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
         adapter.setItemListener(this);
+        //    Tablayout:
+        btAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), addjob.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
